@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌸 Leap Year Checker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffe6f7, #e0f7fa);
+      text-align: center;
+      padding: 60px 20px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #8e44ad;
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+      transform: scale(1.05);
+    }
+
+    .output {
+      margin-top: 30px;
+      font-size: 20px;
+      background-color: #ffffff;
+      border: 2px dashed #ffb6c1;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>🌸 Leap Year Checker 🌸</h2>
+  <button id="checkLeap">Check Year</button>
+  <div class="output" id="result">✨ Result will appear here ✨</div>
+
+  <script>
+    function isLeapYear(year) {
+      return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    }
+
+    document.getElementById("checkLeap").addEventListener("click", function () {
+      let input = prompt("📅 Enter a year to check:");
+      let year = parseInt(input);
+
+      if (!isNaN(year)) {
+        let leap = isLeapYear(year);
+        document.getElementById("result").innerHTML =
+          `🗓️ <strong>${year}</strong> ${leap ? "is a <span style='color:green;'>Leap Year ✅</span>" : "is <span style='color:red;'>NOT</span> a Leap Year ❌"}`;
+      } else {
+        alert("⚠️ Please enter a valid number for the year.");
+      }
+    });
+  </script>
+</body>
+</html>
